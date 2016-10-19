@@ -1,0 +1,502 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
+            http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-2.5.xsd
+            http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-2.5.xsd">
+
+
+    <context:component-scan base-package="com.rkhd.ienterprise"/>
+
+    <!--<aop:config >-->
+        <!--&lt;!&ndash; Spring 2.0 可以用 AspectJ 的语法定义 Pointcut，这里拦截 service 包中的所有方法 &ndash;&gt;-->
+        <!--<aop:advisor id="methodTimeLog2" advice-ref="logAdviceAspect" pointcut="(execution (* com.rkhd.ienterprise.apps.ingage.dingtalk.threads.*.*(..)))"/>-->
+    <!--</aop:config>-->
+
+
+    <!--<aop:config>-->
+        <!--<aop:advisor id="methodTimeLog" advice-ref="logAdviceAspect"-->
+                     <!--pointcut="execution(* com.rkhd.ienterprise.apps.ingage.dingtalk..*(..))" />-->
+    <!--</aop:config>-->
+
+    <!--<import resource="zookeeperContext.xml"/>-->
+    <bean id="scaClient" class="com.rkhd.ienterprise.common.sca.service.SCAClientBean">
+        <property name="resource" value="client.composite"/>
+    </bean>
+    <!-- passport -->
+
+    <bean id="tenantService" class="com.rkhd.ienterprise.common.sca.service.SCAProxyServiceFactory">
+        <property name="client" ref="scaClient"/>
+        <property name="component" value="TenantServiceComponent"/>
+        <property name="className" value="com.rkhd.ienterprise.base.multitenant.service.TenantService"/>
+    </bean>
+    <bean id="passportService" class="com.rkhd.ienterprise.common.sca.service.SCAProxyServiceFactory">
+        <property name="client" ref="scaClient"/>
+        <property name="component" value="PassportServiceComponent"/>
+        <property name="className" value="com.rkhd.ienterprise.base.passport.service.PassportService"/>
+    </bean>
+    <bean id="captchaService" class="com.rkhd.ienterprise.common.sca.service.SCAProxyServiceFactory">
+        <property name="client" ref="scaClient"/>
+        <property name="component" value="CaptchaServiceComponent"/>
+        <property name="className" value="com.rkhd.ienterprise.base.captcha.service.CaptchaService"/>
+    </bean>
+    <!--发短信服务-->
+    <bean id="cloopenSmsService" class="com.rkhd.ienterprise.common.sca.service.SCAProxyServiceFactory">
+        <property name="client" ref="scaClient"/>
+        <property name="component" value="CloopenSmsServiceComponent"/>
+        <property name="className" value="com.rkhd.ienterprise.base.send.cloopen.service.CloopenSmsService"/>
+    </bean>
+
+    <bean id="initCommonParameterDataService" class="com.rkhd.ienterprise.common.sca.service.SCAProxyServiceFactory">
+        <property name="client" ref="scaClient"/>
+        <property name="component" value="InitCommonParameterDataServiceComponent"/>
+        <property name="className" value="com.rkhd.ienterprise.base.setting.service.InitCommonParameterDataService"/>
+    </bean>
+    <bean id="initBlogDataService" class="com.rkhd.ienterprise.common.sca.service.SCAProxyServiceFactory">
+        <property name="client" ref="scaClient"/>
+        <property name="component" value="InitBlogDataServiceComponent"/>
+        <property name="className" value="com.rkhd.ienterprise.apps.twitter.blog.service.InitBlogDataService"/>
+    </bean>
+    <bean id="initTwitterFileDataService" class="com.rkhd.ienterprise.common.sca.service.SCAProxyServiceFactory">
+        <property name="client" ref="scaClient"/>
+        <property name="component" value="InitTwitterFileDataServiceComponent"/>
+        <property name="className" value="com.rkhd.ienterprise.apps.twitter.file.service.InitTwitterFileDataService"/>
+    </bean>
+    <bean id="initDimensionDataService" class="com.rkhd.ienterprise.common.sca.service.SCAProxyServiceFactory">
+        <property name="client" ref="scaClient"/>
+        <property name="component" value="InitDimensionDataServiceComponent"/>
+        <property name="className" value="com.rkhd.ienterprise.base.dimension.service.InitDimensionDataService"/>
+    </bean>
+    <bean id="initRoleDataService" class="com.rkhd.ienterprise.common.sca.service.SCAProxyServiceFactory">
+        <property name="client" ref="scaClient"/>
+        <property name="component" value="InitRoleDataServiceComponent"/>
+        <property name="className" value="com.rkhd.ienterprise.base.authority.service.InitRoleDataService"/>
+    </bean>
+    <bean id="initDBCustomizeDataService" class="com.rkhd.ienterprise.common.sca.service.SCAProxyServiceFactory">
+        <property name="client" ref="scaClient"/>
+        <property name="component" value="InitDBCustomizeDataServiceComponent"/>
+        <property name="className" value="com.rkhd.ienterprise.base.dbcustomize.service.InitDBCustomizeDataService"/>
+    </bean>
+    <bean id="initSalesParameterDataService" class="com.rkhd.ienterprise.common.sca.service.SCAProxyServiceFactory">
+        <property name="client" ref="scaClient"/>
+        <property name="component" value="InitSalesParameterDataServiceComponent"/>
+        <property name="className"
+                  value="com.rkhd.ienterprise.apps.isales.setting.salesbusiness.service.InitSalesParameterDataService"/>
+    </bean>
+    <bean id="initSaleStageDataService" class="com.rkhd.ienterprise.common.sca.service.SCAProxyServiceFactory">
+        <property name="client" ref="scaClient"/>
+        <property name="component" value="InitSaleStageDataServiceComponent"/>
+        <property name="className" value="com.rkhd.ienterprise.apps.isales.process.service.InitSaleStageDataService"/>
+    </bean>
+    <bean id="initIndustryDataService" class="com.rkhd.ienterprise.common.sca.service.SCAProxyServiceFactory">
+        <property name="client" ref="scaClient"/>
+        <property name="component" value="InitIndustryDataServiceComponent"/>
+        <property name="className"
+                  value="com.rkhd.ienterprise.apps.isales.setting.salesbusiness.service.InitIndustryDataService"/>
+    </bean>
+    <bean id="initExpenseTypeDataService" class="com.rkhd.ienterprise.common.sca.service.SCAProxyServiceFactory">
+        <property name="client" ref="scaClient"/>
+        <property name="component" value="InitExpenseTypeDataServiceComponent"/>
+        <property name="className"
+                  value="com.rkhd.ienterprise.apps.isales.setting.salesbusiness.service.InitExpenseTypeDataService"/>
+    </bean>
+    <bean id="licenseService" class="com.rkhd.ienterprise.common.sca.service.SCAProxyServiceFactory">
+        <property name="client" ref="scaClient"/>
+        <property name="component" value="LicenseServiceComponent"/>
+        <property name="className" value="com.rkhd.ienterprise.base.license.service.LicenseService"/>
+    </bean>
+    <bean id="initDepartDataService" class="com.rkhd.ienterprise.common.sca.service.SCAProxyServiceFactory">
+        <property name="client" ref="scaClient"/>
+        <property name="component" value="InitDepartDataServiceComponent"/>
+        <property name="className" value="com.rkhd.ienterprise.apps.isales.department.service.InitDepartDataService"/>
+    </bean>
+    <bean id="initApprovalDataService" class="com.rkhd.ienterprise.common.sca.service.SCAProxyServiceFactory">
+        <property name="client" ref="scaClient"/>
+        <property name="component" value="InitApprovalDataServiceComponent"/>
+        <property name="className" value="com.rkhd.ienterprise.apps.approval.service.InitApprovalDataService"/>
+    </bean>
+    <bean id="initSearchFavoriteService" class="com.rkhd.ienterprise.common.sca.service.SCAProxyServiceFactory">
+        <property name="client" ref="scaClient"/>
+        <property name="component" value="InitSearchFavoriteServiceComponent"/>
+        <property name="className"
+                  value="com.rkhd.ienterprise.apps.isales.analysis.service.InitSearchFavoriteService"/>
+    </bean>
+    <bean id="initHighSeaDataService" class="com.rkhd.ienterprise.common.sca.service.SCAProxyServiceFactory">
+        <property name="client" ref="scaClient"/>
+        <property name="component" value="InitHighSeaDataServiceComponent"/>
+        <property name="className"  value="com.rkhd.ienterprise.apps.isales.highsea.service.InitHighSeaDataService"/>
+    </bean>
+    <bean id="initWorkReportDataService" class="com.rkhd.ienterprise.common.sca.service.SCAProxyServiceFactory">
+        <property name="client" ref="scaClient"/>
+        <property name="component" value="InitWorkReportDataServiceComponent"/>
+        <property name="className"
+                  value="com.rkhd.ienterprise.apps.workreport.service.InitWorkReportDataService"/>
+    </bean>
+    <bean id="departService" class="com.rkhd.ienterprise.common.sca.service.SCAProxyServiceFactory">
+        <property name="client" ref="scaClient"/>
+        <property name="component" value="DepartServiceComponent"/>
+        <property name="className" value="com.rkhd.ienterprise.apps.isales.department.service.DepartService"/>
+    </bean>
+
+    <bean id="dimensionUserService" class="com.rkhd.ienterprise.common.sca.service.SCAProxyServiceFactory">
+        <property name="client" ref="scaClient"/>
+        <property name="component" value="DimensionUserServiceComponent"/>
+        <property name="className" value="com.rkhd.ienterprise.base.dimension.service.DimensionUserService"/>
+    </bean>
+
+    <bean id="userService" class="com.rkhd.ienterprise.common.sca.service.SCAProxyServiceFactory">
+        <property name="client" ref="scaClient"/>
+        <property name="component" value="UserServiceComponent"/>
+        <property name="className" value="com.rkhd.ienterprise.base.user.service.UserService"/>
+    </bean>
+
+    <bean id="userLicenseService" class="com.rkhd.ienterprise.common.sca.service.SCAProxyServiceFactory">
+        <property name="client" ref="scaClient"/>
+        <property name="component" value="UserLicenseServiceComponent"/>
+        <property name="className" value="com.rkhd.ienterprise.base.license.service.UserLicenseService"/>
+    </bean>
+
+    <bean id="userRoleService" class="com.rkhd.ienterprise.common.sca.service.SCAProxyServiceFactory">
+        <property name="client" ref="scaClient"/>
+        <property name="component" value="UserRoleServiceComponent"/>
+        <property name="className" value="com.rkhd.platform.auth.service.UserRoleService"/>
+    </bean>
+    <bean id="roleService" class="com.rkhd.ienterprise.common.sca.service.SCAProxyServiceFactory">
+        <property name="client" ref="scaClient"/>
+        <property name="component" value="RoleServiceComponent"/>
+        <property name="className" value="com.rkhd.platform.auth.service.RoleService"/>
+    </bean>
+    <bean id="responsibilityService" class="com.rkhd.ienterprise.common.sca.service.SCAProxyServiceFactory">
+        <property name="client" ref="scaClient"/>
+        <property name="component" value="ResponsibilityServiceComponent"/>
+        <property name="className" value="com.rkhd.platform.auth.service.ResponsibilityService"/>
+    </bean>
+    <bean id="userResponsibilityService" class="com.rkhd.ienterprise.common.sca.service.SCAProxyServiceFactory">
+        <property name="client" ref="scaClient"/>
+        <property name="component" value="UserResponsibilityServiceComponent"/>
+        <property name="className" value="com.rkhd.platform.auth.service.UserResponsibilityService"/>
+    </bean>
+    <bean id="personalProfileService" class="com.rkhd.ienterprise.common.sca.service.SCAProxyServiceFactory">
+        <property name="client" ref="scaClient"/>
+        <property name="component" value="PersonalProfileServiceComponent"/>
+        <property name="className" value="com.rkhd.ienterprise.base.profile.service.PersonalProfileService"/>
+    </bean>
+    <bean id="userSettingService" class="com.rkhd.ienterprise.common.sca.service.SCAProxyServiceFactory">
+        <property name="client" ref="scaClient"/>
+        <property name="component" value="UserSettingServiceComponent"/>
+        <property name="className" value="com.rkhd.ienterprise.base.view.service.UserSettingService"/>
+    </bean>
+    <bean id="leadService" class="com.rkhd.ienterprise.common.sca.service.SCAProxyServiceFactory">
+        <property name="client" ref="scaClient"/>
+        <property name="component" value="LeadServiceComponent"/>
+        <property name="className" value="com.rkhd.ienterprise.apps.isales.lead.service.LeadService"/>
+    </bean>
+    <!-- Account Beans -->
+    <bean id="accountService" class="com.rkhd.ienterprise.common.sca.service.SCAProxyServiceFactory">
+        <property name="client" ref="scaClient"/>
+        <property name="component" value="AccountServiceComponent"/>
+        <property name="className" value="com.rkhd.ienterprise.apps.isales.account.service.AccountService"/>
+    </bean>
+    <bean id="userManagerService" class="com.rkhd.ienterprise.common.sca.service.SCAProxyServiceFactory">
+        <property name="client" ref="scaClient"/>
+        <property name="component" value="UserManagerServiceComponent"/>
+        <property name="className" value="com.rkhd.ienterprise.base.manager.service.UserManagerService"/>
+    </bean>
+    <bean id="dimensionTenantService" class="com.rkhd.ienterprise.common.sca.service.SCAProxyServiceFactory">
+        <property name="client" ref="scaClient"/>
+        <property name="component" value="DimensionTenantServiceComponent"/>
+        <property name="className" value="com.rkhd.ienterprise.base.dimension.service.DimensionTenantService"/>
+    </bean>
+
+
+    <bean id="itemService" class="com.rkhd.ienterprise.common.sca.service.SCAProxyServiceFactory">
+        <property name="client" ref="scaClient"/>
+        <property name="component" value="ItemServiceComponent"/>
+        <property name="className" value="com.rkhd.ienterprise.base.dbcustomize.service.ItemService"/>
+    </bean>
+    <bean id="selectItemService" class="com.rkhd.ienterprise.common.sca.service.SCAProxyServiceFactory">
+        <property name="client" ref="scaClient"/>
+        <property name="component" value="SelectItemServiceComponent"/>
+        <property name="className" value="com.rkhd.ienterprise.base.dbcustomize.service.SelectItemService"/>
+    </bean>
+    <bean id="entityBelongTypeService" class="com.rkhd.ienterprise.common.sca.service.SCAProxyServiceFactory">
+        <property name="client" ref="scaClient"/>
+        <property name="component" value="EntityBelongTypeServiceComponent"/>
+        <property name="className" value="com.rkhd.ienterprise.base.dbcustomize.service.EntityBelongTypeService"/>
+    </bean>
+    <bean id="stageService" class="com.rkhd.ienterprise.common.sca.service.SCAProxyServiceFactory">
+        <property name="client" ref="scaClient"/>
+        <property name="component" value="StageServiceComponent"/>
+        <property name="className" value="com.rkhd.ienterprise.apps.isales.process.service.StageService"/>
+    </bean>
+
+    <bean id="salesParameterService" class="com.rkhd.ienterprise.common.sca.service.SCAProxyServiceFactory">
+        <property name="client" ref="scaClient"/>
+        <property name="component" value="SalesParameterServiceComponent"/>
+        <property name="className" value="com.rkhd.ienterprise.apps.isales.setting.salesbusiness.service.SalesParameterService"/>
+    </bean>
+
+
+    <!-- demo start -->
+    <!--<bean id="contentService" class="com.rkhd.ienterprise.common.sca.service.SCAProxyServiceFactory">-->
+    <!--<property name="client" ref="scaClient"/>-->
+    <!--<property name="component" value="ContentServiceComponent"/>-->
+    <!--<property name="className" value="com.rkhd.ienterprise.base.mweb.service.ContentService"/>-->
+    <!--</bean>-->
+    <!-- demo end -->
+
+    <!-- 本地service-->
+    <!--公司service -->
+    <!--联系人service -->
+    <!-- 本地service结束-->
+
+    <!-- 关联表相关的service -->
+    <bean id="relThirdCorpXsyTenantService" class="com.rkhd.ienterprise.common.sca.service.SCAProxyServiceFactory">
+        <property name="client" ref="scaClient"/>
+        <property name="component" value="relThirdCorpXsyTenantServiceComponent"/>
+        <property name="className" value="com.rkhd.ienterprise.thirdparty.service.RelThirdCorpXsyTenantService"/>
+    </bean>
+
+    <bean id="relThirdPassportXsyPassportIdService" class="com.rkhd.ienterprise.common.sca.service.SCAProxyServiceFactory">
+        <property name="client" ref="scaClient"/>
+        <property name="component" value="relThirdPassportXsyPassportIdServiceComponent"/>
+        <property name="className" value="com.rkhd.ienterprise.thirdparty.service.RelThirdPassportXsyPassportIdService"/>
+    </bean>
+
+    <bean id="relThirdUserXsyUserService" class="com.rkhd.ienterprise.common.sca.service.SCAProxyServiceFactory">
+        <property name="client" ref="scaClient"/>
+        <property name="component" value="relThirdUserXsyUserServiceComponent"/>
+        <property name="className" value="com.rkhd.ienterprise.thirdparty.service.RelThirdUserXsyUserService"/>
+    </bean>
+
+    <bean id="relThirdTokenService" class="com.rkhd.ienterprise.common.sca.service.SCAProxyServiceFactory">
+        <property name="client" ref="scaClient"/>
+        <property name="component" value="relThirdTokenServiceComponent"/>
+        <property name="className" value="com.rkhd.ienterprise.thirdparty.service.RelThirdTokenService"/>
+    </bean>
+
+    <bean id="thirdConfigService" class="com.rkhd.ienterprise.common.sca.service.SCAProxyServiceFactory">
+        <property name="client" ref="scaClient"/>
+        <property name="component" value="thirdConfigServiceComponent"/>
+        <property name="className" value="com.rkhd.ienterprise.thirdparty.service.ThirdConfigService"/>
+    </bean>
+
+    <!---->
+
+    <bean id="relThirdDepXsyDepartmentService" class="com.rkhd.ienterprise.common.sca.service.SCAProxyServiceFactory">
+        <property name="client" ref="scaClient"/>
+        <property name="component" value="relThirdDepXsyDepartmentServiceComponent"/>
+        <property name="className" value="com.rkhd.ienterprise.thirdparty.service.RelThirdDepXsyDepartmentService"/>
+    </bean>
+    <!-- -->
+        <bean id="synResultService" class="com.rkhd.ienterprise.common.sca.service.SCAProxyServiceFactory">
+            <property name="client" ref="scaClient"/>
+            <property name="component" value="synResultServiceComponent"/>
+            <property name="className" value="com.rkhd.ienterprise.thirdparty.service.SynResultService"/>
+        </bean>
+
+    <bean id="oauthTokenService" class="com.rkhd.ienterprise.common.sca.service.SCAProxyServiceFactory">
+        <property name="client" ref="scaClient"/>
+        <property name="component" value="OauthTokenServiceComponent"/>
+        <property name="className" value="com.rkhd.ienterprise.base.oauth.service.OauthTokenService"/>
+    </bean>
+
+
+    <bean id="serviceUtil" class="com.rkhd.ienterprise.apps.ingage.dingtalk.util.ServiceUtil" factory-method="getInstance"/>
+
+    <bean id="activityRecordService" class="com.rkhd.ienterprise.common.sca.service.SCAProxyServiceFactory">
+        <property name="client" ref="scaClient"/>
+        <property name="component" value="ActivityRecordServiceComponent"/>
+        <property name="className"
+                  value="com.rkhd.ienterprise.apps.isales.activityrecord.service.ActivityRecordService"/>
+    </bean>
+
+    <bean id="dimensionPrivilegeService" class="com.rkhd.ienterprise.common.sca.service.SCAProxyServiceFactory">
+        <property name="client" ref="scaClient"/>
+        <property name="component" value="DimensionPrivilegeServiceComponent"/>
+        <property name="className" value="com.rkhd.ienterprise.base.dimension.service.DimensionPrivilegeService"/>
+    </bean>
+    <bean id="assistantService" class="com.rkhd.ienterprise.common.sca.service.SCAProxyServiceFactory">
+        <property name="client" ref="scaClient"/>
+        <property name="component" value="AssistantServiceComponent"/>
+        <property name="className" value="com.rkhd.ienterprise.apps.isales.assistant.service.AssistantService"/>
+    </bean>
+    <bean id="dimensionUtil" class="com.rkhd.ienterprise.dimension.DimensionUtil" factory-method="getInstance"/>
+    <bean id="groupMemberService" class="com.rkhd.ienterprise.common.sca.service.SCAProxyServiceFactory">
+        <property name="client" ref="scaClient"/>
+        <property name="component" value="GroupMemberServiceComponent"/>
+        <property name="className" value="com.rkhd.ienterprise.base.relation.service.GroupMemberService"/>
+    </bean>
+    <bean id="dimensionService" class="com.rkhd.ienterprise.common.sca.service.SCAProxyServiceFactory">
+        <property name="client" ref="scaClient"/>
+        <property name="component" value="DimensionServiceComponent"/>
+        <property name="className" value="com.rkhd.ienterprise.base.dimension.service.DimensionService"/>
+    </bean>
+    <bean id="contactMemberService" class="com.rkhd.ienterprise.common.sca.service.SCAProxyServiceFactory">
+        <property name="client" ref="scaClient"/>
+        <property name="component" value="ContactMemberServiceComponent"/>
+        <property name="className" value="com.rkhd.ienterprise.apps.isales.contact.service.ContactMemberService"/>
+    </bean>
+    <bean id="contractMemberService" class="com.rkhd.ienterprise.common.sca.service.SCAProxyServiceFactory">
+        <property name="client" ref="scaClient"/>
+        <property name="component" value="ContractMemberServiceComponent"/>
+        <property name="className" value="com.rkhd.ienterprise.apps.isales.contract.service.ContractMemberService"/>
+    </bean>
+    <bean id="entityBelongService" class="com.rkhd.ienterprise.common.sca.service.SCAProxyServiceFactory">
+        <property name="client" ref="scaClient"/>
+        <property name="component" value="EntityBelongServiceComponent"/>
+        <property name="className" value="com.rkhd.ienterprise.base.dbcustomize.service.EntityBelongService"/>
+    </bean>
+    <bean id="customEntityService" class="com.rkhd.ienterprise.common.sca.service.SCAProxyServiceFactory">
+        <property name="client" ref="scaClient"/>
+        <property name="component" value="CustomEntityServiceComponent"/>
+        <property name="className" value="com.rkhd.platform.customize.service.CustomEntityService"/>
+    </bean>
+    <bean id="salesAnalysisService" class="com.rkhd.ienterprise.common.sca.service.SCAProxyServiceFactory">
+        <property name="client" ref="scaClient"/>
+        <property name="component" value="SalesAnalysisServiceComponent"/>
+        <property name="className"
+                  value="com.rkhd.ienterprise.apps.isales.analysis.service.SalesAnalysisService"/>
+    </bean>
+    <bean id="searchControlService" class="com.rkhd.ienterprise.common.sca.service.SCAProxyServiceFactory">
+        <property name="client" ref="scaClient"/>
+        <property name="component" value="SearchControlServiceComponent"/>
+        <property name="className" value="com.rkhd.ienterprise.nsearch.service.SearchControlService"/>
+    </bean>
+
+    <!-- SearchFavorite -->
+    <bean id="searchFavoriteService" class="com.rkhd.ienterprise.common.sca.service.SCAProxyServiceFactory">
+        <property name="client" ref="scaClient"/>
+        <property name="component" value="SearchFavoriteServiceComponent"/>
+        <property name="className" value="com.rkhd.ienterprise.apps.isales.analysis.service.SearchFavoriteService"/>
+    </bean>
+    <bean id="searchFavCondService" class="com.rkhd.ienterprise.common.sca.service.SCAProxyServiceFactory">
+        <property name="client" ref="scaClient"/>
+        <property name="component" value="SearchFavCondServiceComponent"/>
+        <property name="className" value="com.rkhd.ienterprise.apps.isales.analysis.service.SearchFavCondService"/>
+    </bean>
+    <!-- analysis -->
+    <bean id="dashboardService" class="com.rkhd.ienterprise.common.sca.service.SCAProxyServiceFactory">
+        <property name="client" ref="scaClient"/>
+        <property name="component" value="DashboardServiceComponent"/>
+        <property name="className"
+                  value="com.rkhd.ienterprise.apps.isales.analysis.service.DashboardService"/>
+    </bean>
+    <bean id="commonParameterService" class="com.rkhd.ienterprise.common.sca.service.SCAProxyServiceFactory">
+        <property name="client" ref="scaClient"/>
+        <property name="component" value="CommonParameterServiceComponent"/>
+        <property name="className" value="com.rkhd.ienterprise.base.setting.service.CommonParameterService"/>
+    </bean>
+    <bean id="feedbackService" class="com.rkhd.ienterprise.common.sca.service.SCAProxyServiceFactory">
+        <property name="client" ref="scaClient"/>
+        <property name="component" value="FeedbackServiceComponent"/>
+        <property name="className" value="com.rkhd.ienterprise.base.feedback.service.FeedbackService"/>
+    </bean>
+    <bean id="jiraService" class="com.rkhd.ienterprise.common.sca.service.SCAProxyServiceFactory">
+        <property name="client" ref="scaClient"/>
+        <property name="component" value="JiraServiceComponent"/>
+        <property name="className" value="com.rkhd.ienterprise.base.jira.service.JiraService"/>
+    </bean> 
+
+    <bean id="entityDuplicateRuleCriteriaService" class="com.rkhd.ienterprise.common.sca.service.SCAProxyServiceFactory">
+        <property name="client" ref="scaClient"/>
+        <property name="component" value="EntityDuplicateRuleCriteriaServiceComponent"/>
+        <property name="className" value="com.rkhd.platform.rule.service.EntityDuplicateRuleCriteriaService"/>
+    </bean>
+    <bean id="entityDuplicateRuleService" class="com.rkhd.ienterprise.common.sca.service.SCAProxyServiceFactory">
+        <property name="client" ref="scaClient"/>
+        <property name="component" value="EntityDuplicateRuleServiceComponent"/>
+        <property name="className" value="com.rkhd.platform.rule.service.EntityDuplicateRuleService"/>
+    </bean>
+    <bean id="opportunityService" class="com.rkhd.ienterprise.common.sca.service.SCAProxyServiceFactory">
+        <property name="client" ref="scaClient"/>
+        <property name="component" value="OpportunityServiceComponent"/>
+        <property name="className"
+                  value="com.rkhd.ienterprise.apps.isales.opportunity.service.OpportunityService"/>
+    </bean>
+    <bean id="contactService" class="com.rkhd.ienterprise.common.sca.service.SCAProxyServiceFactory">
+        <property name="client" ref="scaClient"/>
+        <property name="component" value="ContactServiceComponent"/>
+        <property name="className" value="com.rkhd.ienterprise.apps.isales.contact.service.ContactService"/>
+    </bean>
+    <bean id="licenseFunctionService" class="com.rkhd.ienterprise.common.sca.service.SCAProxyServiceFactory">
+        <property name="client" ref="scaClient"/>
+        <property name="component" value="LicenseFunctionServiceComponent"/>
+        <property name="className" value="com.rkhd.ienterprise.base.license.service.LicenseFunctionService"/>
+    </bean>
+    <bean id="contractService" class="com.rkhd.ienterprise.common.sca.service.SCAProxyServiceFactory">
+        <property name="client" ref="scaClient"/>
+        <property name="component" value="ContractServiceComponent"/>
+        <property name="className" value="com.rkhd.ienterprise.apps.isales.contract.service.ContractService"/>
+    </bean>
+    <bean id="orderService" class="com.rkhd.ienterprise.common.sca.service.SCAProxyServiceFactory">
+        <property name="client" ref="scaClient"/>
+        <property name="component" value="OrderServiceComponent"/>
+        <property name="className"
+                  value="com.rkhd.ienterprise.apps.isales.order.service.OrderService"/>
+    </bean>
+    <bean id="campaignService" class="com.rkhd.ienterprise.common.sca.service.SCAProxyServiceFactory">
+        <property name="client" ref="scaClient"/>
+        <property name="component" value="CampaignServiceComponent"/>
+        <property name="className" value="com.rkhd.ienterprise.apps.isales.campaign.service.CampaignService"/>
+    </bean>
+    <bean id="caseService" class="com.rkhd.ienterprise.common.sca.service.SCAProxyServiceFactory">
+        <property name="client" ref="scaClient"/>
+        <property name="component" value="CaseServiceComponent"/>
+        <property name="className" value="com.rkhd.ienterprise.apps.isales.cases.service.CaseService"/>
+    </bean>
+    <bean id="paymentService" class="com.rkhd.ienterprise.common.sca.service.SCAProxyServiceFactory">
+        <property name="client" ref="scaClient"/>
+        <property name="component" value="PaymentServiceComponent"/>
+        <property name="className" value="com.rkhd.ienterprise.apps.isales.payment.service.PaymentService"/>
+    </bean>
+    <bean id="entityInstanceService" class="com.rkhd.ienterprise.common.sca.service.SCAProxyServiceFactory">
+        <property name="client" ref="scaClient"/>
+        <property name="component" value="EntityInstanceServiceComponent"/>
+        <property name="className" value="com.rkhd.ienterprise.base.dbcustomize.service.EntityInstanceService"/>
+    </bean>
+    <bean id="customItemService" class="com.rkhd.ienterprise.common.sca.service.SCAProxyServiceFactory">
+        <property name="client" ref="scaClient"/>
+        <property name="component" value="CustomItemServiceComponent"/>
+        <property name="className" value="com.rkhd.platform.customize.service.CustomItemService"/>
+    </bean>
+    <bean id="customDataService" class="com.rkhd.ienterprise.common.sca.service.SCAProxyServiceFactory">
+        <property name="client" ref="scaClient"/>
+        <property name="component" value="CustomDataServiceComponent"/>
+        <property name="className" value="com.rkhd.platform.customize.service.CustomDataService"/>
+    </bean>
+    <bean id="loginLogService" class="com.rkhd.ienterprise.common.sca.service.SCAProxyServiceFactory">
+        <property name="client" ref="scaClient"/>
+        <property name="component" value="LoginLogServiceComponent"/>
+        <property name="className" value="com.rkhd.ienterprise.base.security.loginlog.service.LoginLogService"/>
+    </bean>
+    <bean id="sessionManagerService" class="com.rkhd.ienterprise.common.sca.service.SCAProxyServiceFactory">
+        <property name="client" ref="scaClient"/>
+        <property name="component" value="SessionManagerServiceComponent"/>
+        <property name="className" value="com.rkhd.ienterprise.base.session.service.SessionManagerService"/>
+    </bean>
+    <bean id="webCookieUtil" class="com.rkhd.ienterprise.web.WebCookieUtil" factory-method="getInstance">
+        <property name="sessionManagerService" ref="sessionManagerService"/>
+    </bean>
+
+    <bean id="initPackDataService" class="com.rkhd.ienterprise.common.sca.service.SCAProxyServiceFactory">
+        <property name="client" ref="scaClient"/>
+        <property name="component" value="InitPackDataServiceComponent"/>
+        <property name="className" value="com.rkhd.platform.auth.service.InitPackDataService"/>
+    </bean>
+
+    <bean id="registerService" class="com.rkhd.ienterprise.common.sca.service.SCAProxyServiceFactory">
+        <property name="client" ref="scaClient"/>
+        <property name="component" value="RegisterServiceComponent"/>
+        <property name="className" value="com.rkhd.ienterprise.apps.manager.register.service.RegisterService"/>
+    </bean>
+    <!--获取工商信息服务注入-->
+    <bean id="enterpriseInfoService" class="com.rkhd.ienterprise.common.sca.service.SCAProxyServiceFactory">
+        <property name="client" ref="scaClient"/>
+        <property name="component" value="EnterpriseInfoServiceComponent"/>
+        <property name="className"
+                  value="com.rkhd.ienterprise.base.smartsearch.enterprise.EnterpriseInfoService"/>
+    </bean>
+
+</beans>

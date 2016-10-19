@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+        "http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+        <constant name="struts.devMode" value="false"/>
+        <constant name="struts.i18n.encoding" value="UTF-8"/>
+        <constant name="struts.objectFactory" value="spring"/>
+        <constant name="struts.convention.default.parent.package" value="rkhd-default"/>
+        <package name="rkhd-default" extends="json-default">
+                <interceptors>
+                        <interceptor name="csrf" class="com.rkhd.ienterprise.apps.ingage.wx.interceptors.CsrfInterceptor">
+                        </interceptor>
+                        <interceptor name="https2http" class="com.rkhd.ienterprise.apps.ingage.wx.interceptors.UrlInterceptor">
+                        </interceptor>
+                        <interceptor name="wxAuthInterceptor" class="com.rkhd.ienterprise.apps.ingage.wx.interceptors.WxAuthInterceptor">
+                        </interceptor>
+
+                        <interceptor name="wxJsSdkInterceptor" class="com.rkhd.ienterprise.apps.ingage.wx.interceptors.WxJsSdkInterceptor">
+                        </interceptor>
+
+                        <interceptor-stack name="ienterprise-default">
+                                <interceptor-ref name="timer" /><!--计算Action执行耗时-->
+                                <interceptor-ref name="https2http"/>
+                                <interceptor-ref name="paramsPrepareParamsStack"/><!--必须保留，否则参数传递会出现问题-->
+                                <interceptor-ref name="wxJsSdkInterceptor"/>
+                                <interceptor-ref name="wxAuthInterceptor"/>
+                                <!--只拦截钉钉的-->
+                                <!--<interceptor-ref name="csrf"/>-->
+                        </interceptor-stack>
+                </interceptors>
+                <default-interceptor-ref name="ienterprise-default"/>
+                <global-results>
+                        <result name="no_auth" type="dispatcher" >/WEB-INF/pages/wx/authorized_no.jsp</result>
+                </global-results>
+
+        </package>
+</struts>

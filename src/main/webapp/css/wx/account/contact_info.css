@@ -1,0 +1,365 @@
+body {
+    background: #f7f9ff;
+}
+
+header {
+    width: 100%;
+    padding-top: 64px;
+    background: #45aaff;
+}
+
+header .head_pic {
+    font-size: 36px;
+    line-height: 142px;
+    width: 142px;
+    height: 142px;
+    margin: 0 auto;
+    text-align: center;
+    color: #fff;
+    border: 6px solid #99d6ff;
+    border-radius: 50%;
+}
+
+header p {
+    font-size: 28px;
+    padding-bottom: 28px;
+    text-align: center;
+    color: #fff;
+}
+
+header .post {
+    overflow: hidden;
+    width: 50%;
+    margin: 0 auto;
+    padding-top: 20px;
+    padding-bottom: 22px;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+header .accountName {
+   display: inline-block;
+    overflow: hidden;
+    width: 80%;
+    padding: 0 5px;
+    text-align: center;
+    text-overflow: ellipsis;
+}
+
+
+/*更多菜单*/
+
+#area {
+    position: fixed;
+    z-index: 1001;
+    top: 10px;
+    right: 20px;
+    width: 260px;
+    padding-left: 20px;
+    border-radius: 8px;
+    background: rgba(0, 0, 0, .7);
+}
+
+.shadow {
+    position: fixed;
+    z-index: 1002;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, .5);
+}
+
+.dia {
+    position: fixed;
+    z-index: 1002;
+    width: 540px;
+    border: 1px solid #e3e3e5;
+    border-radius: 8px;
+    background: #fff;
+}
+
+.dia p {
+    font-size: 30px;
+    line-height: 180px;
+    width: 100%;
+    height: 180px;
+    text-align: center;
+    border-bottom: 1px solid #e3e3e5;
+}
+
+.dia .confirm {
+    width: 100%;
+    height: 88px;
+}
+
+.dia .confirm div {
+    font-size: 36px;
+    line-height: 88px;
+    float: left;
+    width: 50%;
+    height: 100%;
+    text-align: center;
+    color: #45aaff;
+}
+
+.dia .confirm .yes {
+    border-left: 1px solid #e3e3e5;
+}
+
+#area .triangle {
+    position: absolute;
+    top: -10px;
+    right: 25px;
+    opacity: .7;
+    border-top: 0 solid rgba(0, 0, 0, 0);
+    border-right: 8px solid rgba(0, 0, 0, 0);
+    border-bottom: 10px solid #000;
+    border-left: 8px solid rgba(0, 0, 0, 0);
+}
+
+#area li {
+    font-size: 30px;
+    line-height: 68px;
+    width: 100%;
+    height: 68px;
+    color: #fff;
+    border-bottom: 1px solid #e3e3e5;
+}
+
+#area li:nth-last-of-type(1) {
+    border: 0;
+}
+
+
+/*吸顶菜单*/
+#topNav {
+    z-index: 100;
+    width: calc(100% - 80px);
+     width: -webkit-calc(100% - 80px);
+      width:-moz-calc(100% - 80px);
+    height: 88px;
+    margin-bottom: 20px;
+    padding: 0 40px;
+    background: #fff;
+    box-shadow: 0 5px 5px -5px #dbe0e5;
+}
+#nav {
+     width: 100%;
+    height: 88px;
+}
+
+#nav li {
+    font-size: 30px;
+    line-height: 88px;
+    float: left;
+    width: 33%;
+    height: 88px;
+    padding: 0 5px;
+    text-align: center;
+    white-space: nowrap;
+    color: #858e99;
+}
+
+#nav li.active {
+    color: #45aaff;
+    border-bottom: 4px solid #45aaff;
+}
+
+
+/*.details .staff .atom.commentAtom{*/
+
+
+/*line-height: 56px;*/
+
+
+/*}*/
+
+
+/*.details .staff .content{*/
+
+
+/*padding-top: 10px;*/
+
+
+/*}*/
+
+
+/*checktabel*/
+
+.ct .container {
+    overflow-x: hidden;
+    overflow-y: scroll;
+    width: 100%;
+    max-height: 80%;
+}
+
+.ct .container.ownerContainer {
+    height: 100%;
+    max-height: none;
+}
+
+.ct .item {
+    line-height: 90px;
+    width: 100%;
+    height: 90px;
+    padding-left: 30px;
+    border-bottom: 1px solid #e3e3e5;
+    background: #fff;
+}
+
+.ct .end_info {
+    line-height: 54px;
+    height: 54px;
+    text-align: center;
+}
+
+.ct #confirm {
+    font-size: 34px;
+    line-height: 88px;
+    position: absolute;
+    bottom: 20px;
+    left: 5%;
+    width: 90%;
+    height: 88px;
+    text-align: center;
+    color: #fff;
+    border-radius: 10px;
+    background: #45aaff;
+}
+
+
+/*低栏*/
+
+.tel_bg {
+    position: absolute;
+    z-index: 1000;
+    top: -1px;
+    left: 0;
+    display: none;
+    width: 100%;
+    height: 100%;
+    opacity: .4;
+    background: #000;
+}
+
+#mobile_list {
+    position: fixed;
+    z-index: 2000;
+    bottom: 0;
+    left: 0;
+    overflow-y: scroll;
+    width: 100%;
+    padding-bottom: 96px;
+    background: #fff;
+}
+
+.mobile_atom {
+    display: block;
+    width: 100%;
+    height: 96px;
+    border-bottom: 1px solid #e3e3e5;
+}
+
+.mobile_atom:nth-last-of-type(1) {
+    border-bottom: 0;
+}
+
+
+/*电话*/
+
+.tel_bg {
+    position: absolute;
+    z-index: 1000;
+    top: -1px;
+    left: 0;
+    display: none;
+    width: 100%;
+    height: 100%;
+    opacity: .4;
+    background: #000;
+}
+
+#tel_list {
+    position: fixed;
+    z-index: 2000;
+    bottom: 0;
+    left: 0;
+    overflow-y: scroll;
+    width: 100%;
+    padding-bottom: 96px;
+    background: #fff;
+}
+
+.tel_atom {
+    display: block;
+    width: 100%;
+    height: 96px;
+    border-bottom: 1px solid #e3e3e5;
+}
+
+.tel_atom:nth-last-of-type(1) {
+    border-bottom: 0;
+}
+
+.tel_atom .label {
+    font-size: 30px;
+    line-height: 96px;
+    float: left;
+    padding-left: 5%;
+    color: #858e99;
+}
+
+.tel_atom .value {
+    font-size: 30px;
+    line-height: 96px;
+    float: right;
+    padding-right: 5%;
+    color: #38adff;
+}
+
+#rtn_btn {
+    font-size: 36px;
+    line-height: 96px;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    height: 96px;
+    text-align: center;
+    color: #222;
+    border-top: 1px solid #e3e3e5;
+    background: #fff;
+}
+
+#list .info {
+    font-size: 30px;
+    line-height: 96px;
+    position: relative;
+    /*float: left;*/
+    width: 100%;
+    height: 96px;
+    color: #222;
+    border-bottom: 1px solid #e3e3e5;
+}
+
+#list .info .accountName {
+    display: inline-block;
+    overflow: hidden;
+    width: 65%;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+#list .sign_in {
+    position: absolute;
+    top: 0;
+    right: 0;
+    display: block;
+    width: 36px;
+    height: 96px;
+    margin: 0;
+    padding: 0;
+    padding-right: 56px;
+    background: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACQAAAAkCAYAAADhAJiYAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyhpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuNS1jMDIxIDc5LjE1NTc3MiwgMjAxNC8wMS8xMy0xOTo0NDowMCAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENDIDIwMTQgKE1hY2ludG9zaCkiIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6QjQ1MTlFQTJFRTZBMTFFNTlFNEZGMUFGMzUzOUMyNDkiIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6QjQ1MTlFQTNFRTZBMTFFNTlFNEZGMUFGMzUzOUMyNDkiPiA8eG1wTU06RGVyaXZlZEZyb20gc3RSZWY6aW5zdGFuY2VJRD0ieG1wLmlpZDpBMDZCNTE4OUVFNkExMUU1OUU0RkYxQUYzNTM5QzI0OSIgc3RSZWY6ZG9jdW1lbnRJRD0ieG1wLmRpZDpBMDZCNTE4QUVFNkExMUU1OUU0RkYxQUYzNTM5QzI0OSIvPiA8L3JkZjpEZXNjcmlwdGlvbj4gPC9yZGY6UkRGPiA8L3g6eG1wbWV0YT4gPD94cGFja2V0IGVuZD0iciI/PvQ6yM0AAAMHSURBVHjavJhbSFRBGMeP6xIhxkJkkaJBUdRDPSi5gUgEFQUpuHShgh6qh7QLmj2FRRaGiSQF3R66PFWUkUJFCWG9Vmb1UNvlRSmTiAohISVO/4/+C4fl7Dhzbh/8GHbOzPf9z+xcvjl5tm1ba29bJpYPVoF1oBIsBDP57Cf4AJ6Bh6Af/NVx2rfpfxk3EFIA9oEDoCRHmzmkGjSDL+AsOAd+6wSJaYpZD96BUxQjI9DCkSoG00AhWMS6FrYpYZ+3oDYIQfL8OLgHysBdUA6SoA08AV/BJEfgI+va2KacfaRvLzjDv9yTIHlrmV1HwHewAaTAoMHfPMg+0vcb/+5b9G0s6AqdpTl571veTfoup68UfRsJqgfbwTDnxJDl3zK+hum7XldQKejgvJC3GdUINqQpepQ+JxmjVEfQUa6YLjBgBW8D9F3IWEpBRWAHGAftVnjWzhgSa7ZKUB1XwB3uumGZ+O5mrDqVoDWOVRG2PWC5WiVoKcuXEQjKxFimElTMciQCQSNZMV0FzWA5HoGgzGE7XSUoM5FnRSCoiOUPlaDPLJdEIGixY7PMKShzcCYNnZcROwdutoLlK5WgfpY1EYxQTVZMV0E94A+oAvMMnOdNgduIVjFWj0rQLzaIMV0Ny/YzRi9jKg/XTpYNYG4IYuTs2pMVSynoBW8MktSfCEHQSZ70EuO5boLWxJxlJ28QQVk1fU4yhnbGmGYCJRPymmMH92Pi4yp9djCGUU4tt43XYD64FICgC2ABeEPfxkn+BNgCxsBW0OhDTCPz6DH6nPB6L3sPdnG37dS97GVZLfva9JX2e3OVzO4wL3g3DI+VJPvk00d3UFdpyYFPcyt4BCo0+lSwbQGTeq0cPWbwts28CifA4ylGqpJtEuxzUDdIzHA+NPFLRoJvv9KljdT1sc35XPtNUIJsnnHHGFB2242O5ynWybNWsFeRfrha3OMybmUydxHcBIccZ5MI2A0ue3Ec97G3SMBP/JrRxTr5wrEZPPXq1I8gi4FlNV3n722ONNiT/RNgAGEzqC2L7DJtAAAAAElFTkSuQmCC') left center no-repeat;
+    background-size: 36px;
+}

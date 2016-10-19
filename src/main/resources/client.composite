@@ -1,0 +1,565 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<composite xmlns="http://www.osoa.org/xmlns/sca/1.0"
+           xmlns:scallop="http://scallop/xmlns/sca/1.0"
+           targetNamespace="http://rk.com/hu/composite"
+           name="IngageMWebComposite">
+        <!--passport-->
+       <component name="TenantServiceComponent">
+           <implementation.java class="com.rkhd.ienterprise.base.multitenant.service.proxy.TenantServiceClientImpl"/>
+           <reference name="rmiService">
+               <scallop:binding.rmi registryName="base-passport-service" serviceName="TenantRMIService"/>
+           </reference>
+       </component>
+       <component name="PassportServiceComponent">
+           <implementation.java
+                   class="com.rkhd.ienterprise.base.passport.service.proxy.PassportServiceClientImpl"/>
+           <reference name="rmiService">
+               <scallop:binding.rmi registryName="base-passport-service" serviceName="PassportRMIService"/>
+           </reference>
+       </component>
+       <component name="CaptchaServiceComponent">
+           <implementation.java
+                   class="com.rkhd.ienterprise.base.captcha.service.proxy.CaptchaServiceClientImpl"/>
+           <reference name="rmiService">
+               <scallop:binding.rmi registryName="base-passport-service" serviceName="CaptchaRMIService"/>
+           </reference>
+       </component>
+       <component name="CloopenSmsServiceComponent">
+           <implementation.java
+                   class="com.rkhd.ienterprise.base.send.cloopen.service.proxy.CloopenSmsServiceClientImpl"/>
+           <reference name="rmiService">
+               <scallop:binding.rmi registryName="base-send-service" serviceName="CloopenSmsRMIService"/>
+           </reference>
+       </component>
+
+        <component name="StaticConstTemplateServiceComponent">
+           <implementation.java
+                   class="com.rkhd.ienterprise.base.dbcustomize.service.proxy.StaticConstTemplateServiceImpl"/>
+           <reference name="rmiService">
+               <scallop:binding.rmi registryName="base-dbcustomize-service" serviceName="StaticConstTemplateRMIService"/>
+           </reference>
+       </component>
+       <component name="InitCommonParameterDataServiceComponent">
+               <implementation.java
+                       class="com.rkhd.ienterprise.base.setting.service.proxy.InitCommonParameterDataServiceClientImpl"/>
+               <reference name="rmiService">
+                   <scallop:binding.rmi registryName="base-setting-service" serviceName="InitCommonParameterDataRMIService"/>
+               </reference>
+       </component>
+       <component name="InitBlogDataServiceComponent">
+               <implementation.java
+                       class="com.rkhd.ienterprise.apps.twitter.blog.service.proxy.InitBlogDataServiceClientImpl"/>
+               <reference name="rmiService">
+                   <scallop:binding.rmi registryName="apps-twitter-service" serviceName="InitBlogDataRMIService"/>
+               </reference>
+       </component>
+       <component name="InitTwitterFileDataServiceComponent">
+               <implementation.java
+                       class="com.rkhd.ienterprise.apps.twitter.file.service.proxy.InitTwitterFileDataServiceClientImpl"/>
+               <reference name="rmiService">
+                   <scallop:binding.rmi registryName="apps-twitter-service" serviceName="InitTwitterFileDataRMIService"/>
+               </reference>
+       </component>
+       <component name="InitDimensionDataServiceComponent">
+           <implementation.java
+                   class="com.rkhd.ienterprise.base.dimension.service.proxy.InitDimensionDataServiceClientImpl"/>
+           <reference name="rmiService">
+               <scallop:binding.rmi registryName="base-user-service" serviceName="InitDimensionDataRMIService"/>
+           </reference>
+       </component>
+       <component name="InitRoleDataServiceComponent">
+           <implementation.java class="com.rkhd.ienterprise.base.authority.service.proxy.InitRoleDataServiceClientImpl"/>
+           <reference name="rmiService">
+               <scallop:binding.rmi registryName="base-user-service" serviceName="InitRoleDataRMIService"/>
+           </reference>
+       </component>
+       <component name="InitDBCustomizeDataServiceComponent">
+           <implementation.java
+                   class="com.rkhd.ienterprise.base.dbcustomize.service.proxy.InitDBCustomizeDataServiceClientImpl"/>
+           <reference name="rmiService">
+               <scallop:binding.rmi registryName="base-dbcustomize-service" serviceName="InitDBCustomizeDataRMIService"/>
+           </reference>
+       </component>
+       <component name="InitSalesParameterDataServiceComponent">
+               <implementation.java
+                       class="com.rkhd.ienterprise.apps.isales.setting.salesbusiness.service.proxy.InitSalesParameterDataServiceClientImpl"/>
+               <reference name="rmiService">
+                   <scallop:binding.rmi registryName="apps-isales-service" serviceName="InitSalesParameterDataRMIService"/>
+               </reference>
+       </component>
+       <component name="InitSaleStageDataServiceComponent">
+           <implementation.java
+                   class="com.rkhd.ienterprise.apps.isales.process.service.proxy.InitSaleStageDataServiceClientImpl"/>
+           <reference name="rmiService">
+               <scallop:binding.rmi registryName="apps-isales-service" serviceName="InitSaleStageDataRMIService"/>
+           </reference>
+       </component>
+       <component name="InitIndustryDataServiceComponent">
+           <implementation.java
+                   class="com.rkhd.ienterprise.apps.isales.setting.salesbusiness.service.proxy.InitIndustryDataServiceClientImpl"/>
+           <reference name="rmiService">
+               <scallop:binding.rmi registryName="apps-isales-service" serviceName="InitIndustryDataRMIService"/>
+           </reference>
+       </component>
+       <component name="InitExpenseTypeDataServiceComponent">
+               <implementation.java
+                       class="com.rkhd.ienterprise.apps.isales.setting.salesbusiness.service.proxy.InitExpenseTypeDataServiceClientImpl"/>
+               <reference name="rmiService">
+                   <scallop:binding.rmi registryName="apps-isales-service" serviceName="InitExpenseTypeDataRMIService"/>
+               </reference>
+       </component>
+       <component name="LicenseServiceComponent">
+           <implementation.java class="com.rkhd.ienterprise.base.license.service.proxy.LicenseServiceClientImpl"/>
+           <reference name="rmiService">
+               <scallop:binding.rmi registryName="base-license-service" serviceName="LicenseRMIService"/>
+           </reference>
+       </component>
+       <component name="InitDepartDataServiceComponent">
+           <implementation.java
+                   class="com.rkhd.ienterprise.apps.isales.department.service.proxy.InitDepartDataServiceClientImpl"/>
+           <reference name="rmiService">
+               <scallop:binding.rmi registryName="apps-isales-service" serviceName="InitDepartDataRMIService"/>
+           </reference>
+       </component>
+       <!-- approval -->
+       <component name="InitApprovalDataServiceComponent">
+           <implementation.java
+                   class="com.rkhd.ienterprise.apps.approval.service.proxy.InitApprovalDataClientImpl"/>
+           <reference name="rmiService">
+               <scallop:binding.rmi registryName="apps-approval-service" serviceName="InitApprovalDataRMIService"/>
+           </reference>
+       </component>
+       <component name="InitSearchFavoriteServiceComponent">
+           <implementation.java
+                   class="com.rkhd.ienterprise.apps.isales.analysis.service.proxy.InitSearchFavoriteServiceClientImpl"/>
+           <reference name="rmiService">
+               <scallop:binding.rmi registryName="apps-isales-service" serviceName="InitSearchFavoriteRMIService"/>
+           </reference>
+       </component>
+       <component name="InitHighSeaDataServiceComponent">
+           <implementation.java
+                   class="com.rkhd.ienterprise.apps.isales.highsea.service.proxy.InitHighSeaDataServiceClientImpl"/>
+           <reference name="rmiService">
+               <scallop:binding.rmi registryName="apps-isales-service" serviceName="InitHighSeaDataRMIService"/>
+           </reference>
+       </component>
+       <component name="InitWorkReportDataServiceComponent">
+           <implementation.java
+                   class="com.rkhd.ienterprise.apps.workreport.service.proxy.InitWorkReportDataClinetImpl"/>
+           <reference name="rmiService">
+               <scallop:binding.rmi registryName="apps-approval-service" serviceName="InitWorkReportDataRMIService"/>
+           </reference>
+       </component>
+      <component name="DepartServiceComponent">
+          <implementation.java class="com.rkhd.ienterprise.apps.isales.department.service.proxy.DepartServiceClientImpl"/>
+          <reference name="rmiService">
+              <scallop:binding.rmi registryName="apps-isales-service" serviceName="DepartRMIService"/>
+          </reference>
+      </component>
+      <component name="DimensionUserServiceComponent">
+          <implementation.java class="com.rkhd.ienterprise.base.dimension.service.proxy.DimensionUserServiceClientImpl"/>
+          <reference name="rmiService">
+              <scallop:binding.rmi registryName="base-user-service" serviceName="DimensionUserRMIService"/>
+          </reference>
+      </component>
+      <component name="UserServiceComponent">
+          <implementation.java class="com.rkhd.ienterprise.base.user.service.proxy.UserServiceClientImpl"/>
+          <reference name="rmiService">
+              <scallop:binding.rmi registryName="base-user-service" serviceName="UserRMIService"/>
+          </reference>
+      </component>
+      <component name="UserLicenseServiceComponent">
+          <implementation.java class="com.rkhd.ienterprise.base.license.service.proxy.UserLicenseServiceClientImpl"/>
+          <reference name="rmiService">
+              <scallop:binding.rmi registryName="base-user-service" serviceName="UserLicenseRMIService"/>
+          </reference>
+      </component>
+      <component name="UserRoleServiceComponent">
+          <implementation.java class="com.rkhd.platform.auth.service.proxy.UserRoleServiceClientImpl"/>
+          <reference name="rmiService">
+              <scallop:binding.rmi registryName="paas-auth-service" serviceName="UserRoleRMIService"/>
+          </reference>
+      </component>
+      <component name="RoleServiceComponent">
+          <implementation.java class="com.rkhd.platform.auth.service.proxy.RoleServiceClientImpl"/>
+          <reference name="rmiService">
+              <scallop:binding.rmi registryName="paas-auth-service" serviceName="RoleRMIService"/>
+          </reference>
+      </component>
+      <component name="ResponsibilityServiceComponent">
+          <implementation.java class="com.rkhd.platform.auth.service.proxy.ResponsibilityServiceClientImpl"/>
+          <reference name="rmiService">
+              <scallop:binding.rmi registryName="paas-auth-service" serviceName="ResponsibilityRMIService"/>
+          </reference>
+      </component>
+      <component name="UserResponsibilityServiceComponent">
+              <implementation.java class="com.rkhd.platform.auth.service.proxy.UserResponsibilityServiceClientImpl"/>
+              <reference name="rmiService">
+                  <scallop:binding.rmi registryName="paas-auth-service" serviceName="UserResponsibilityRMIService"/>
+              </reference>
+      </component>
+      <component name="PersonalProfileServiceComponent">
+          <implementation.java class="com.rkhd.ienterprise.base.profile.service.proxy.PersonalProfileServiceClientImpl"/>
+          <reference name="rmiService">
+              <scallop:binding.rmi registryName="base-user-service" serviceName="PersonalProfileRMIService"/>
+          </reference>
+      </component>
+      <component name="UserSettingServiceComponent">
+          <implementation.java class="com.rkhd.ienterprise.base.view.service.proxy.UserSettingServiceClientImpl"/>
+          <reference name="rmiService">
+              <scallop:binding.rmi registryName="base-user-service" serviceName="UserSettingRMIService"/>
+          </reference>
+      </component>
+      <component name="LeadServiceComponent">
+          <implementation.java class="com.rkhd.ienterprise.apps.isales.lead.service.proxy.LeadServiceClientImpl"/>
+          <reference name="rmiService">
+              <scallop:binding.rmi registryName="apps-isales-service" serviceName="LeadRMIService"/>
+          </reference>
+      </component>
+      <!-- Account Component -->
+      <component name="AccountServiceComponent">
+          <implementation.java class="com.rkhd.ienterprise.apps.isales.account.service.proxy.AccountServiceClientImpl"/>
+          <reference name="rmiService">
+              <scallop:binding.rmi registryName="apps-isales-service" serviceName="AccountRMIService"/>
+          </reference>
+      </component>
+      <component name="UserManagerServiceComponent">
+              <implementation.java class="com.rkhd.ienterprise.base.manager.service.proxy.UserManagerServiceClientImpl"/>
+              <reference name="rmiService">
+                  <scallop:binding.rmi registryName="base-user-service" serviceName="UserManagerRMIService"/>
+              </reference>
+      </component>
+     <component name="DimensionTenantServiceComponent">
+          <implementation.java
+                  class="com.rkhd.ienterprise.base.dimension.service.proxy.DimensionTenantServiceClientImpl"/>
+          <reference name="rmiService">
+              <scallop:binding.rmi registryName="base-user-service" serviceName="DimensionTenantRMIService"/>
+          </reference>
+      </component>
+
+     <!-- demo start -->
+       <!--   <component name="ContentServiceComponent">
+               <implementation.java
+                       class="com.rkhd.ienterprise.base.mweb.service.proxy.ContentServiceClientImpl"/>
+               <reference name="rmiService">
+                   <scallop:binding.rmi  registryName="apps-ingage-mweb-service" serviceName="ContentRMIService"/>
+               </reference>
+         </component>-->
+     <!-- demo end -->
+
+     <!--thirdPartyComponent -->
+     <component name="relThirdCorpXsyTenantServiceComponent">
+         <implementation.java class="com.rkhd.ienterprise.thirdparty.service.proxy.RelThirdCorpXsyTenantServiceClientImpl"/>
+         <reference name="rmiService">
+             <scallop:binding.rmi registryName="base-thirdparty-service" serviceName="RelThirdCorpXsyTenantRMIService"/>
+         </reference>
+     </component>
+
+     <component name="relThirdPassportXsyPassportIdServiceComponent">
+              <implementation.java class="com.rkhd.ienterprise.thirdparty.service.proxy.RelThirdPassportXsyPassportIdServiceClientImpl"/>
+              <reference name="rmiService">
+                  <scallop:binding.rmi registryName="base-thirdparty-service" serviceName="RelThirdPassportXsyPassportIdRMIService"/>
+              </reference>
+      </component>
+      <component name="relThirdUserXsyUserServiceComponent">
+                    <implementation.java class="com.rkhd.ienterprise.thirdparty.service.proxy.RelThirdUserXsyUserServiceClientImpl"/>
+                    <reference name="rmiService">
+                        <scallop:binding.rmi registryName="base-thirdparty-service" serviceName="RelThirdUserXsyUserRMIService"/>
+                    </reference>
+      </component>
+      <component name="relThirdTokenServiceComponent">
+                          <implementation.java class="com.rkhd.ienterprise.thirdparty.service.proxy.RelThirdTokenServiceClientImpl"/>
+                          <reference name="rmiService">
+                              <scallop:binding.rmi registryName="base-thirdparty-service" serviceName="RelThirdTokenRMIService"/>
+                          </reference>
+      </component>
+      <component name="thirdConfigServiceComponent">
+                        <implementation.java class="com.rkhd.ienterprise.thirdparty.service.proxy.ThirdConfigServiceClientImpl"/>
+                        <reference name="rmiService">
+                            <scallop:binding.rmi registryName="base-thirdparty-service" serviceName="ThirdConfigRMIService"/>
+                        </reference>
+      </component>
+      <!-- -->
+     <component name="relThirdDepXsyDepartmentServiceComponent">
+                      <implementation.java class="com.rkhd.ienterprise.thirdparty.service.proxy.RelThirdDepXsyDepartmentServiceClientImpl"/>
+                      <reference name="rmiService">
+                          <scallop:binding.rmi registryName="base-thirdparty-service" serviceName="RelThirdDepXsyDepartmentRMIService"/>
+                      </reference>
+     </component>
+     <!---->
+    <component name="synResultServiceComponent">
+        <implementation.java class="com.rkhd.ienterprise.thirdparty.service.proxy.SynResultServiceClientImpl"/>
+        <reference name="rmiService">
+            <scallop:binding.rmi registryName="base-thirdparty-service" serviceName="SynResultRMIService"/>
+        </reference>
+    </component>
+     <component name="OauthTokenServiceComponent">
+                      <implementation.java class="com.rkhd.ienterprise.base.oauth.service.proxy.OauthTokenServiceClientImpl"/>
+                      <reference name="rmiService">
+                          <scallop:binding.rmi registryName="base-oauth-service" serviceName="OauthTokenRMIService"/>
+                      </reference>
+     </component>
+
+      <component name="ItemServiceComponent">
+                       <implementation.java class="com.rkhd.ienterprise.base.dbcustomize.service.proxy.ItemServiceClientImpl"/>
+                       <reference name="rmiService">
+                           <scallop:binding.rmi registryName="base-dbcustomize-service" serviceName="ItemRMIService"/>
+                       </reference>
+     </component>
+      <component name="SelectItemServiceComponent">
+                        <implementation.java class="com.rkhd.ienterprise.base.dbcustomize.service.proxy.SelectItemServiceClientImpl"/>
+                        <reference name="rmiService">
+                            <scallop:binding.rmi registryName="base-dbcustomize-service" serviceName="SelectItemRMIService"/>
+                        </reference>
+      </component>
+      <component name="EntityBelongTypeServiceComponent">
+              <implementation.java class="com.rkhd.ienterprise.base.dbcustomize.service.proxy.EntityBelongTypeServiceClientImpl"/>
+              <reference name="rmiService">
+                  <scallop:binding.rmi registryName="base-dbcustomize-service" serviceName="EntityBelongTypeRMIService"/>
+              </reference>
+      </component>
+
+      <component name="StageServiceComponent">
+            <implementation.java class="com.rkhd.ienterprise.apps.isales.process.service.proxy.StageServiceClientImpl"/>
+            <reference name="rmiService">
+                <scallop:binding.rmi registryName="apps-isales-service" serviceName="StageRMIService"/>
+            </reference>
+      </component>
+
+      <component name="SalesParameterServiceComponent">
+                  <implementation.java class="com.rkhd.ienterprise.apps.isales.setting.salesbusiness.service.proxy.SalesParameterServiceClientImpl"/>
+                  <reference name="rmiService">
+                      <scallop:binding.rmi registryName="apps-isales-service" serviceName="SalesParameterRMIService"/>
+                  </reference>
+      </component>
+       <component name="ActivityRecordServiceComponent">
+              <implementation.java
+                      class="com.rkhd.ienterprise.apps.isales.activityrecord.service.proxy.ActivityRecordServiceClientImpl"/>
+              <reference name="rmiService">
+                  <scallop:binding.rmi registryName="apps-isales-service" serviceName="ActivityRecordRMIService"/>
+              </reference>
+          </component>
+       <component name="DimensionPrivilegeServiceComponent">
+          <implementation.java
+                  class="com.rkhd.ienterprise.base.dimension.service.proxy.DimensionPrivilegeServiceClientImpl"/>
+          <reference name="rmiService">
+              <scallop:binding.rmi registryName="base-user-service" serviceName="DimensionPrivilegeRMIService"/>
+          </reference>
+      </component>
+      <component name="AssistantServiceComponent">
+          <implementation.java
+                  class="com.rkhd.ienterprise.apps.isales.assistant.service.proxy.AssistantServiceClientImpl"/>
+          <reference name="rmiService">
+              <scallop:binding.rmi registryName="apps-isales-service" serviceName="AssistantRMIService"/>
+          </reference>
+      </component>
+    <component name="GroupMemberServiceComponent">
+        <implementation.java class="com.rkhd.ienterprise.base.relation.service.proxy.GroupMemberServiceClientImpl"/>
+        <reference name="rmiService">
+            <scallop:binding.rmi registryName="base-relation-service" serviceName="GroupMemberRMIService"/>
+        </reference>
+    </component>
+   <component name="DimensionServiceComponent">
+        <implementation.java class="com.rkhd.ienterprise.base.dimension.service.proxy.DimensionServiceClientImpl"/>
+        <reference name="rmiService">
+            <scallop:binding.rmi registryName="base-user-service" serviceName="DimensionRMIService"/>
+        </reference>
+    </component>
+    <component name="ContactMemberServiceComponent">
+            <implementation.java
+                    class="com.rkhd.ienterprise.apps.isales.contact.service.proxy.ContactMemberServiceClientImpl"/>
+            <reference name="rmiService">
+                <scallop:binding.rmi registryName="apps-isales-service" serviceName="ContactMemberRMIService"/>
+            </reference>
+    </component>
+
+   <component name="ContractMemberServiceComponent">
+        <implementation.java
+                class="com.rkhd.ienterprise.apps.isales.contract.service.proxy.ContractMemberServiceClientImpl"/>
+        <reference name="rmiService">
+            <scallop:binding.rmi registryName="apps-isales-service" serviceName="ContractMemberRMIService"/>
+        </reference>
+    </component>
+    <component name="EntityBelongServiceComponent">
+        <implementation.java
+                class="com.rkhd.ienterprise.base.dbcustomize.service.proxy.EntityBelongServiceClientImpl"/>
+        <reference name="rmiService">
+            <scallop:binding.rmi registryName="base-dbcustomize-service" serviceName="EntityBelongRMIService"/>
+        </reference>
+    </component>
+        <component name="CustomEntityServiceComponent">
+            <implementation.java class="com.rkhd.platform.customize.service.proxy.CustomEntityServiceClientImpl"/>
+            <reference name="rmiService">
+                <scallop:binding.rmi registryName="paas-customize-service" serviceName="CustomEntityRMIService"/>
+            </reference>
+     </component>
+    <component name="SalesAnalysisServiceComponent">
+             <implementation.java
+                     class="com.rkhd.ienterprise.apps.isales.analysis.service.proxy.SalesAnalysisServiceClientImpl"/>
+             <reference name="rmiService">
+                 <scallop:binding.rmi registryName="apps-isales-service" serviceName="SalesAnalysisRMIService"/>
+             </reference>
+     </component>
+     <component name="SearchControlServiceComponent">
+             <implementation.java class="com.rkhd.ienterprise.nsearch.service.proxy.SearchControlServiceClientImpl"/>
+             <reference name="rmiService">
+                 <scallop:binding.rmi registryName="base-nsearch-service" serviceName="SearchControlRMIService"/>
+             </reference>
+     </component>
+
+     <component name="SearchFavoriteServiceComponent">
+             <implementation.java
+                     class="com.rkhd.ienterprise.apps.isales.analysis.service.proxy.SearchFavoriteServiceClientImpl"/>
+             <reference name="rmiService">
+                 <scallop:binding.rmi registryName="apps-isales-service" serviceName="SearchFavoriteRMIService"/>
+             </reference>
+      </component>
+
+      <component name="SearchFavCondServiceComponent">
+          <implementation.java
+                  class="com.rkhd.ienterprise.apps.isales.analysis.service.proxy.SearchFavCondServiceClientImpl"/>
+          <reference name="rmiService">
+              <scallop:binding.rmi registryName="apps-isales-service" serviceName="SearchFavCondRMIService"/>
+          </reference>
+      </component>
+      <!-- analysis -->
+      <component name="DashboardServiceComponent">
+          <implementation.java
+                  class="com.rkhd.ienterprise.apps.isales.analysis.service.proxy.DashboardServiceClientImpl"/>
+          <reference name="rmiService">
+              <scallop:binding.rmi registryName="apps-isales-service" serviceName="DashboardRMIService"/>
+          </reference>
+      </component>
+      <component name="CommonParameterServiceComponent">
+          <implementation.java
+                  class="com.rkhd.ienterprise.base.setting.service.proxy.CommonParameterServiceClientImpl"/>
+          <reference name="rmiService">
+              <scallop:binding.rmi registryName="base-setting-service" serviceName="CommonParameterRMIService"/>
+          </reference>
+      </component>
+      <component name="FeedbackServiceComponent">
+          <implementation.java class="com.rkhd.ienterprise.base.feedback.service.proxy.FeedbackServiceClientImpl"/>
+          <reference name="rmiService">
+              <scallop:binding.rmi registryName="base-email-service" serviceName="FeedbackRMIService"/>
+          </reference>
+      </component>
+      <component name="JiraServiceComponent">
+          <implementation.java class="com.rkhd.ienterprise.base.jira.service.proxy.JiraServiceClientImpl"/>
+          <reference name="rmiService">
+              <scallop:binding.rmi registryName="base-email-service" serviceName="JiraRMIService"/>
+          </reference>
+      </component>
+      <component name="EntityDuplicateRuleCriteriaServiceComponent">
+              <implementation.java class="com.rkhd.platform.rule.service.proxy.EntityDuplicateRuleCriteriaServiceClientImpl"/>
+              <reference name="rmiService">
+                  <scallop:binding.rmi registryName="paas-customize-service" serviceName="EntityDuplicateRuleCriteriaRMIService"/>
+              </reference>
+      </component>
+      <component name="EntityDuplicateRuleServiceComponent">
+          <implementation.java class="com.rkhd.platform.rule.service.proxy.EntityDuplicateRuleServiceClientImpl"/>
+          <reference name="rmiService">
+              <scallop:binding.rmi registryName="paas-customize-service" serviceName="EntityDuplicateRuleRMIService"/>
+          </reference>
+      </component>
+      <component name="OpportunityServiceComponent">
+              <implementation.java
+                      class="com.rkhd.ienterprise.apps.isales.opportunity.service.proxy.OpportunityServiceClientImpl"/>
+              <reference name="rmiService">
+                  <scallop:binding.rmi registryName="apps-isales-service" serviceName="OpportunityRMIService"/>
+              </reference>
+      </component>
+      <component name="ContactServiceComponent">
+          <implementation.java class="com.rkhd.ienterprise.apps.isales.contact.service.proxy.ContactServiceClientImpl"/>
+          <reference name="rmiService">
+              <scallop:binding.rmi registryName="apps-isales-service" serviceName="ContactRMIService"/>
+          </reference>
+      </component>
+      <component name="LicenseFunctionServiceComponent">
+              <implementation.java class="com.rkhd.ienterprise.base.license.service.proxy.LicenseFunctionServiceClientImpl"/>
+              <reference name="rmiService">
+                  <scallop:binding.rmi registryName="base-license-service" serviceName="LicenseFunctionRMIService"/>
+              </reference>
+      </component>
+      <component name="ContractServiceComponent">
+          <implementation.java class="com.rkhd.ienterprise.apps.isales.contract.service.proxy.ContractServiceClientImpl"/>
+          <reference name="rmiService">
+              <scallop:binding.rmi registryName="apps-isales-service" serviceName="ContractRMIService"/>
+          </reference>
+      </component>
+      <component name="OrderServiceComponent">
+                  <implementation.java
+                          class="com.rkhd.ienterprise.apps.isales.order.service.proxy.OrderServiceClientImpl"/>
+                  <reference name="rmiService">
+                      <scallop:binding.rmi registryName="apps-isales-service" serviceName="OrderRMIService"/>
+                  </reference>
+       </component>
+       <component name="CampaignServiceComponent">
+           <implementation.java
+                   class="com.rkhd.ienterprise.apps.isales.campaign.service.proxy.CampaignServiceClientImpl"/>
+           <reference name="rmiService">
+               <scallop:binding.rmi registryName="apps-isales-service" serviceName="CampaignRMIService"/>
+           </reference>
+       </component>
+       <component name="CaseServiceComponent">
+           <implementation.java class="com.rkhd.ienterprise.apps.isales.cases.service.proxy.CaseServiceClientImpl"/>
+           <reference name="rmiService">
+               <scallop:binding.rmi registryName="apps-isales-service" serviceName="CaseRMIService"/>
+           </reference>
+       </component>
+       <component name="PaymentServiceComponent">
+           <implementation.java class="com.rkhd.ienterprise.apps.isales.payment.service.proxy.PaymentServiceClientImpl"/>
+           <reference name="rmiService">
+               <scallop:binding.rmi registryName="apps-isales-service" serviceName="PaymentRMIService"/>
+           </reference>
+       </component>
+       <component name="EntityInstanceServiceComponent">
+           <implementation.java
+                   class="com.rkhd.ienterprise.base.dbcustomize.service.proxy.EntityInstanceServiceClientImpl"/>
+           <reference name="rmiService">
+               <scallop:binding.rmi registryName="base-dbcustomize-service" serviceName="EntityInstanceRMIService"/>
+           </reference>
+       </component>
+       <component name="CustomItemServiceComponent">
+           <implementation.java class="com.rkhd.platform.customize.service.proxy.CustomItemServiceClientImpl"/>
+           <reference name="rmiService">
+               <scallop:binding.rmi registryName="paas-customize-service" serviceName="CustomItemRMIService"/>
+           </reference>
+       </component>
+       <component name="CustomDataServiceComponent">
+           <implementation.java class="com.rkhd.platform.customize.service.proxy.CustomDataServiceClientImpl"/>
+           <reference name="rmiService">
+               <scallop:binding.rmi registryName="paas-customize-service" serviceName="CustomDataRMIService"/>
+           </reference>
+       </component>
+       <component name="LoginLogServiceComponent">
+           <implementation.java class="com.rkhd.ienterprise.base.security.loginlog.service.proxy.LoginLogServiceClientImpl"/>
+           <reference name="rmiService">
+               <scallop:binding.rmi registryName="base-user-service" serviceName="LoginLogRMIService"/>
+           </reference>
+       </component>
+      <component name="SessionManagerServiceComponent">
+          <implementation.java class="com.rkhd.ienterprise.base.session.service.proxy.SessionManagerClientServiceImpl"/>
+          <reference name="rmiService">
+              <scallop:binding.rmi registryName="base-passport-service" serviceName="SessionManagerRMIService"/>
+          </reference>
+      </component>
+       <component name="InitPackDataServiceComponent">
+           <implementation.java class="com.rkhd.platform.auth.service.proxy.InitPackDataServiceClientImpl"/>
+           <reference name="rmiService">
+               <scallop:binding.rmi registryName="paas-auth-service" serviceName="InitPackDataRMIService"/>
+           </reference>
+       </component>
+       <component name="RegisterServiceComponent">
+           <implementation.java class="com.rkhd.ienterprise.apps.manager.register.service.proxy.RegisterServiceClientImpl"/>
+           <reference name="rmiService">
+               <scallop:binding.rmi registryName="apps-manager-service" serviceName="RegisterRMIService"/>
+           </reference>
+       </component>
+       <component name="EnterpriseInfoServiceComponent">
+                <implementation.java class="com.rkhd.ienterprise.base.smartsearch.enterprise.EnterpriseInfoServiceClientImpl"/>
+                <reference name="rmiService">
+                     <scallop:binding.rmi registryName="base-smartsearch-service" serviceName="EnterpriseInfoRMIService"/>
+                </reference>
+         </component>
+
+ </composite>

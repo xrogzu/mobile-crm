@@ -1,0 +1,61 @@
+body{
+    background: #eee;
+    height:100%;
+}
+/*level_choose*/
+.container{
+    padding-top: 20px;
+    width: 100%;
+    border-top: 1px solid #c7c7cc;
+}
+.item{
+    width: 100%;
+    height: 44px;
+    line-height: 44px;
+    padding-left:15px;
+    border-bottom: 1px solid #c7c7cc;
+    background: #FFFFFF;
+}
+.item em{
+    display: inline-block;
+    margin-top: 7px;
+    float: left;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+}
+.item em.active{
+    background: url("../../images/dingtalk/2x/choose/xuanze-lan.png") center no-repeat;
+    background-size: contain;
+}
+.item em.radio{
+    background: url("../../images/dingtalk/2x/choose/danxuan-hui.png") center no-repeat;
+    background-size: contain;
+}
+.item em.checkbox{
+    background: url("../../images/dingtalk/2x/choose/duoxuan-hui.png") center no-repeat;
+    background-size: contain;
+}
+.item span{
+    float: left;
+    line-height: 42px;
+    padding-left: 15px;
+}
+.end_info{
+    height: 30px;
+    text-align: center;
+    line-height: 30px;
+}
+#confirm{
+    width: 90%;
+    height: 44px;
+    border-radius: 5px;
+    color: #FFFFFF;
+    font-size: 17px;
+    line-height: 44px;
+    text-align: center;
+    background: #45aaff;
+    position: absolute;
+    bottom: 12.5px;
+    left: 5%;
+}

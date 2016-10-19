@@ -1,0 +1,336 @@
+@charset "utf-8";
+*{margin: 0;padding: 0;}
+ul,ol,dl,li{
+	list-style: none;
+}
+img{
+	border: 0;
+}
+body{
+	font-family: "微软雅黑";
+}
+.header{
+	width: 100%;
+	height: 62px;
+	background-color: #5aaeed;
+}
+.header-con{
+	width: 1104px;
+	height: 62px;
+	margin: 0 auto;
+	overflow: hidden;
+}
+.header-con img{
+	display: block;
+	/*width: 103px;
+	height: 30px;*/
+	float: left;
+	margin-top: 16px;
+}
+.header-con .register{
+	display: block;
+	width: 73px;
+	height: 26px;
+	line-height: 26px;
+	text-align: center;
+	float: right;
+	color: white;
+	margin-top: 17px;
+	border: 1px solid white;
+	border-radius: 3px;
+	font-weight: bold;
+	cursor: pointer;
+	font-family: "微软雅黑";
+	text-decoration: none;
+}
+/*========banner==========*/
+.banner{
+	width: 100%;
+	height: 506px;
+	position: relative;
+	background: url(../../images/wx/2x/common/banner.png) no-repeat center;
+}
+.banner-form{
+	position: absolute;
+	width: 348px;
+	height: 380px;
+	right: 21.25%;
+	top: 34px;
+	border: 1px solid #a6d2ff;
+	border-radius: 5px;
+	background-color: #2a3960;
+}
+.banner-form h3{
+	line-height: 64px;
+	text-align: center;
+	color: white;
+	font-size: 18px;
+	font-family: "微软雅黑";
+}
+.banner-form form{
+	padding-left: 20px;
+}
+.banner-form form li{
+	width: 100%;
+	height: 24px;
+	margin-bottom: 18px;
+}
+.banner-form label{
+	width: 60px;	
+	height: 24px;
+	line-height: 24px;
+	color: white;
+	font-size: 12px;
+	font-weight: bold;
+	display: block;
+	float: left;
+	
+}
+.banner-form input{
+	border: 0;
+	width: 218px;
+	height: 24px;
+	border-radius: 5px;
+	color: #ff6f6f;
+	font-size: 12px;
+	padding-left: 10px;
+	font-weight: bold;
+	display: block;
+	float: left;
+	font-family: "微软雅黑";
+}
+.banner-form span{
+	display: block;
+	width: 8px;
+	height: 24px;
+	float: left;
+	margin-left: 12px;
+}
+.banner-form span img{
+	display: block;
+}
+.banner-btn{
+	width: 300px;
+    margin: 0 auto;
+    padding-top: 19px;
+    text-align: right;
+    position: relative;
+}
+.banner-btn a{
+	display: block;
+    width: 85px;
+    height: 28px;
+    line-height: 28px;
+    border-radius: 14px;
+    float: right;
+    background-color: #54aced;
+    color: #fff;
+    text-align: center;
+    text-decoration: none;
+    font-size: 13px;
+    position: absolute;
+    right: 33px
+}
+.tel-validate{
+	display: block;
+	float: left;
+	width: 228px;
+	height: 24px;
+}
+.tel-validate .tel{
+	float: left;
+	width: 122px;
+	height: 24px;
+}
+.tel-validate .validate{
+	float: right;
+	width: 83px;
+	height: 24px;
+	padding: 0;
+	border: 0;
+	background-color: #9e9e9e;
+	color: white;
+}
+.tel-validate .validate.disabled{
+	float: right;
+	width: 83px;
+	height: 24px;
+	padding: 0;
+	border: 0;
+	background-color: #52a5dc;
+	color: white;
+}
+.tel-validate .validate{
+	float: right;
+	width: 83px;
+	height: 24px;
+	padding: 0;
+	border: 0;
+	background-color: #9e9e9e;
+	color: white;
+}
+.banner-form .form-msg{
+	width: 100%;
+	height: 25px;
+	padding-top: 7px;
+	margin-bottom: 0;
+}
+.form-msg .sub-btn.disabled{
+	width: 150px;
+	height: 32px;
+	color: #ffffff;
+	background-color: #52a5dc;
+}
+.form-msg .sub-btn{
+	width: 150px;
+	height: 32px;
+	color: #ffffff;
+	background-color: #a4a2a2;
+}
+/*=============choice===============*/
+.choice-title{
+	width: 100%;
+	height: 78px;
+	line-height: 78px;
+	text-align: center;
+	margin-top: 54px;
+	font-size: 23px;
+	font-family: "微软雅黑";
+}
+.choice-item{
+	width: 1104px;
+	height: 407px;
+	margin: 0 auto;
+}
+.choice-item dl{
+	width: 348px;
+	height: 407px;
+	float: left;
+}
+.choice-item .item-center{
+	margin: 0 30px;
+}
+.choice-item dt{
+	width: 100%;
+	height: 203px;
+}
+
+.choice-item .img1{
+	background: url(../../images/wx/2x/common/img1.jpg) no-repeat center;
+}
+.choice-item .img2{
+	background: url(../../images/wx/2x/common/img2.jpg) no-repeat center;
+}
+	
+.choice-item .img3{
+	background: url(../../images/wx/2x/common/img3.jpg) no-repeat center;
+}
+
+.choice-item .img-font{
+	width: 100%;
+	height: 56px;
+	text-align: center;
+	line-height: 56px;
+	color: #d3786d;
+	font-family: "微软雅黑";
+}
+.choice-item .font1{
+	color: #d3786d;
+}
+.choice-item .font2{
+	color: #f6ac2b;
+}
+.choice-item .font3{
+	color: #81bae1;
+}
+.choice-item .img-desc{
+	width: 98%;
+	font-size: 15px;
+	line-height: 24px;
+	font-family: "微软雅黑";
+	color: #727171;
+	margin: 0 auto;
+}
+/*=================about====================*/
+.about{
+	width: 100%;
+	height: 362px;
+	background-color: #F0F0F0;
+	overflow: hidden;
+	font-family: "微软雅黑";
+}
+.about-title{
+	width: 1100px;
+	height: 98px;
+	text-align: center;
+	line-height: 98px;
+	font-size: 22px;
+	color: #434343;
+	margin: 45px auto 0;
+}
+.about-msg{
+	width: 1100px;
+	margin: 0 auto;
+}
+.about-msg p{
+	font-size: 15px;
+	line-height: 25px;
+	color: #727171;
+	margin-bottom: 29px;
+}
+/*================customer==================*/
+.customer-title{
+	width: 1104px;
+	height: 144px;
+	font-size: 23px;
+	font-weight: bold;
+	text-align: center;
+	line-height: 144px;
+	margin: 22px auto 0;
+	color: #464646;
+}
+.customer-img{
+	width: 971px;
+	margin: 0 auto;
+	height: 187px;
+}
+.customer-img li{
+	float: left;
+	width: 159px;
+	height: 60px;
+	margin-right: 35px;
+}
+.customer-img li:nth-child(1){
+	background: url(../../images/wx/2x/common/customer1.jpg) no-repeat center;
+}
+.customer-img li:nth-child(2){
+	background: url(../../images/wx/2x/common/customer2.jpg) no-repeat center;
+}
+.customer-img li:nth-child(3){
+	background: url(../../images/wx/2x/common/customer3.jpg) no-repeat center;
+}
+.customer-img li:nth-child(4){
+	background: url(../../images/wx/2x/common/customer4.jpg) no-repeat center;
+}
+.customer-img li:nth-child(5){
+	background: url(../../images/wx/2x/common/customer5.jpg) no-repeat center;
+}
+.customer-img li:nth-child(6){
+	width: 133px;
+	margin-right: 0;
+	float: right;
+	background: url(../../images/wx/2x/common/customer6.jpg) no-repeat center;
+}
+.banner h3 {
+    font-size: 36px;
+    font-weight: 400;
+    color: #395a80;
+    margin: 0 auto;
+    width: 398px;
+    padding-top: 48px;
+}
+.banner span.des {
+    font-size: 18px;
+    color: #7d8795;
+    float: left;
+}

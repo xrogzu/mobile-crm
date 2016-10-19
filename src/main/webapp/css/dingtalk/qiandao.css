@@ -1,0 +1,221 @@
+body{
+    background: #f5f8fa;
+    height: 100%;
+}
+#current_time{
+    width: 100%;
+    height: 60px;
+    line-height: 60px;
+    color: #858e99;
+    font-size: 26px;
+}
+#current_time .label{
+    padding-left: 5%;
+}
+#my_position,#account,#comment{
+    color: #222;
+    font-size: 30px;
+    padding-left: 5%;
+    height: 90px;
+    line-height: 90px;
+    background: #FFFFFF;
+}
+#comment{
+    margin-top: 20px;
+    height: auto;
+    width: 100%;
+}
+#comment .main{
+    height: auto;
+    padding-bottom: 40px;
+    position: relative;
+}
+#comment .value{
+    margin-top: 28px;
+    width:100%;
+    height: 210px;
+    font-size: 30px;
+    color: #222;
+    border: 0;
+    outline: 0;
+    resize: none;
+    max-height: 540px;
+    clear: both;
+    margin-right: 0;
+    text-align: left;
+    white-space: normal;
+}
+#comment .value::-webkit-input-placeholder{
+    color: #cccccc;
+    text-align: left;
+}
+#num{
+    color: #cccccc;
+    font-size: 20px;
+    position: absolute;
+    bottom: -10px;
+    right: 30px;
+}
+
+.main{
+    width: 100%;
+    height: 88px;
+}
+#my_position .main{
+    border-bottom: 1px solid #e3e3e5;
+    background: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyhpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuNS1jMDIxIDc5LjE1NTc3MiwgMjAxNC8wMS8xMy0xOTo0NDowMCAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENDIDIwMTQgKE1hY2ludG9zaCkiIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6NDA5MDMwNENCMkU5MTFFNUE4MDNFMkU5NkI5N0FEOEMiIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6NDA5MDMwNERCMkU5MTFFNUE4MDNFMkU5NkI5N0FEOEMiPiA8eG1wTU06RGVyaXZlZEZyb20gc3RSZWY6aW5zdGFuY2VJRD0ieG1wLmlpZDo0MDkwMzA0QUIyRTkxMUU1QTgwM0UyRTk2Qjk3QUQ4QyIgc3RSZWY6ZG9jdW1lbnRJRD0ieG1wLmRpZDo0MDkwMzA0QkIyRTkxMUU1QTgwM0UyRTk2Qjk3QUQ4QyIvPiA8L3JkZjpEZXNjcmlwdGlvbj4gPC9yZGY6UkRGPiA8L3g6eG1wbWV0YT4gPD94cGFja2V0IGVuZD0iciI/PipffvIAAADmSURBVHjapNNZCsIwEAbgGL2AVW/hgvpQn7UFQU/rk+DyJqig4nILtR6hTmAiQZpkphn4oSTlY7JV8jwXqg77k8DaQaqQOeQlCBWPhr9vWTCvsBiyhjQFs4rAGeQC6SHaCgXfkNRAVxxUWsYVmpTpVDrmMgPtUlHpmdfoGdGND5WEVWS4pwrt+FBJ3GuzU4Vubahk3IgPouoFtCHLUJBUNca/dTzpAeQBmYZ0+I+NIc+yYGRgdxdGASN8ehqbuDAfaGI3CuY6FL3MPmIJBbN12DCwKwezgQsDSzmYDVRjR25nur4CDADC1jkq/qL3tAAAAABJRU5ErkJggg==") 93% center no-repeat;
+    background-size: 20px;
+}
+#my_position .value{
+    background-size: 20px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+.clear_float{
+    clear: both;
+}
+.label{
+    float: left;
+}
+.value{
+    margin-right: 10%;
+    float: right;
+    width: 60%;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    text-align: right;
+}
+#confirm{
+    width: 92.5%;
+    height: 88px;
+    background: #45aaff;
+    font-size: 36px;
+    color: #FFFFFF;
+    line-height: 88px;
+    text-align: center;
+    border-radius: 8px;
+    position: fixed;
+    bottom: 30px;
+    left: 3.625%;
+    border: 0;
+    outline: 0;
+    display: block;
+}
+#confirm.touching{
+    background: #e0e0e0;
+}
+@media (max-height: 800px) {
+    #confirm {
+        display: none;
+    }
+}
+#container{
+    display: none;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: -25%;
+    left: 0;
+}
+.amap-logo{
+    display: none;
+}
+.amap-copyright{
+    display: none;
+}
+
+.waiting{
+    width: 60%;
+    height: 180px;
+    line-height: 180px;
+    text-align: center;
+    font-size: 32px;
+    border-radius: 8px;
+    color: #FFFFFF;
+    background: rgba(0,0,0,0.5);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%,-50%);
+    transform: translate(-50%,-50%)
+}
+/*myChoose确定退出提示*/
+.chooseShadow{
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.5);
+    top: 0;
+    left: 0;
+    z-index: 1002;
+}
+.dia{
+    width:540px;
+    border-radius: 10px;
+    position: fixed;
+    background: #FFFFFF;
+    border: 1px solid #e3e3e5;
+    z-index: 1002;
+}
+.dia p{
+    width: 100%;
+    height: 180px;
+    border-bottom: 1px solid #e3e3e5;
+    text-align: center;
+    line-height: 180px;
+    font-size: 32px;
+}
+.dia .chooseBtn{
+    width: 100%;
+    height: 88px;
+}
+.dia .chooseBtn div{
+    width: 50%;
+    height: 100%;
+    float: left;
+    text-align: center;
+    line-height: 88px;
+    font-size: 36px;
+    color: #45aaff;
+}
+.dia .chooseBtn .y{
+    border-left: 1px solid #e3e3e5;
+}
+/*对panel中元素样式的修改*/
+#panel {
+    display: none;
+    position: fixed;
+    background-color: white;
+    max-height: 50%;
+    overflow-y: scroll;
+    bottom: 0;
+    right: 0;
+    width: 100%;
+}
+.poibox{
+    height: 88px;
+    font-size: 24px;
+    line-height: 28px;
+}
+.poibox h3.poi-title{
+   height: 28px;
+}
+.poi-info p{
+    height: 30px;
+    line-height: 26px;
+    padding-top: 3px;
+}
+.poibox h3.poi-title .poi-name{
+    font-size: 24px;
+    line-height: 26px;
+}
+.amap_lib_placeSearch_page{
+    height: 88px;
+}
+.amap_lib_placeSearch_page div p span{
+    font-size: 30px;
+    line-height: 88px;
+    margin-right: 10px;
+}
